@@ -1,15 +1,14 @@
 FROM alpine:latest
 
-FROM alpine:edge
+COPY scripts/init.sh /usr/local/sbin
 
 RUN apk add --update \
     samba-common-tools \
     samba-client \
     samba-server \
-    && rm -rf /var/cache/apk/*
-
-COPY scripts/init.sh /usr/share/bin
+    && rm -rf /var/cache/apk/* \
+    && chmod 755 /usr/local/sbin/init.sh
 
 EXPOSE 137/udp 138/udp 139/tcp 445/tcp
 
-CMD ["/usr/share/bin/init.sh"]
+CMD ["/usr/local/sbin/init.sh"]
