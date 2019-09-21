@@ -19,4 +19,4 @@ EOF
 
 done
 
-smbd "smbd", "--foreground", "--log-stdout"
+smbd --foreground --log-stdout
