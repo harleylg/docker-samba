@@ -18,3 +18,5 @@ EOF
     unset $(echo "USER_"${USER_ID})
 
 done
+
+smbd "smbd", "--foreground", "--log-stdout"
